@@ -1,0 +1,28 @@
+.flex{
+	display: flex;
+}
+.flex.vd{
+	flex-direction:column;
+}
+.flex.v{
+	align-items: center;
+}
+.flex.c{
+	justify-content: center;
+}
+.flex.r{
+	justify-content: right;
+}
+.flex.b{
+	flex-wrap: wrap;
+}
+.flex1{
+	flex: 1;
+}
+.buttons::after{
+	border:none;
+}
+image{
+	max-width: 100%;
+	max-height: 100%;
+}
