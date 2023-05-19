@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+	return redirect('/h5');
+    // return view('welcome');
+});
 Route::group([
     'namespace' => '\App\Http\Controllers',
     'middleware'=> [],
     'prefix'    => '',
     'as'        => '',
 ], function(){
-    Route::get('/', 'IndexController@index')->name('index');
+    Route::get('/links', 'IndexController@index')->name('index');
 });
