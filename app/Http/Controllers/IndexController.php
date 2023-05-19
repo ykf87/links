@@ -62,7 +62,7 @@ class IndexController extends Controller{
 				$products 	= $products->orderByDesc('yongjin');
 			break;
 		}
-		$products 		= $products->offset(($page - 1) * $limit)->limit($limit)->get();
+		$products 		= $products->offset(($page - 1) * $limit)->limit($limit)->orderByDesc('id')->get();
 
 		$arr['list']	= $products;
 		$arr['page']	= $page;
