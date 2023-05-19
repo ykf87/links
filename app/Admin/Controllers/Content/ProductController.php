@@ -92,7 +92,7 @@ class ProductController extends AdminController
         $form->select('country_id', __('国家'))->options($country);
         $form->select('cate_id', __('类型'))->options($cate);
         $form->text('title', __('标题'));
-        $form->image('image', __('产品图'));
+        $form->multipleImage('image', __('产品图'))->removable();
         $form->currency('price', __('价格'));
         $form->rate('yongjin', __('佣金率'));
         $form->url('url', __('链接'));
