@@ -25,4 +25,5 @@ Route::group([
     'as'        => '',
 ], function(){
     Route::post('/links', 'IndexController@index')->name('index');
+    Route::post('/product', 'IndexController@product')->name('product');
 });

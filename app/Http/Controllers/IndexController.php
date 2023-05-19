@@ -67,6 +67,19 @@ class IndexController extends Controller{
 		$arr['list']	= $products;
 		$arr['page']	= $page;
 		$arr['limit']	= $limit;
-		return response()->json($arr);
+		return $this->success($arr);
+	}
+
+	public function product(Request $request){
+		$id 	= (int)$request->input('id', 0);
+
+		if($id < 1){
+			return $this->error('产品不存在!');
+		}
+		$row 	= Product::find($id);
+		if(!$row){
+			return $this->error('产品不存在!');
+		}
+		return $this->success($row);
 	}
 }
