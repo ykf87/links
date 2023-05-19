@@ -24,5 +24,5 @@ Route::group([
     'prefix'    => '',
     'as'        => '',
 ], function(){
-    Route::post('/', 'IndexController@index')->name('index');
+    Route::post('/links', 'IndexController@index')->name('index');
 });
