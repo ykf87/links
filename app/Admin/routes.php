@@ -15,4 +15,6 @@ Route::group([
     $router->resource('content/cate', Content\CateController::class);
     $router->resource('content/country', Content\CountryController::class);
     $router->resource('content/product', Content\ProductController::class);
+
+    $router->resource('sliders', Content\SliderController::class);
 });

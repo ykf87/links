@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cate;
 use App\Models\Country;
 use App\Models\Product;
+use App\Models\Slider;
 
 class IndexController extends Controller{
 	public function index(Request $request){
@@ -37,6 +38,8 @@ class IndexController extends Controller{
 				['text' => '类别', 'origin' => $cates, 'index' => 0, 'col' => 'cate'],
 				['text' => '排序', 'origin' => $sorts, 'index' => 0, 'col' => 'sort'],
 			];
+
+			$arr['sliders']	= Slider::select('id', 'src', 'url')->where('status', 1)->orderByDesc('sort')->limit(10)->get();
 		}
 
 		$products 	= Product::select('products.*', 'b.huobi as symbol')
