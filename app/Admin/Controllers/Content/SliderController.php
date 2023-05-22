@@ -65,7 +65,7 @@ class SliderController extends AdminController
         $form = new Form(new Slider());
 
         $form->image('src', __('图片'));
-        $form->number('sort', __('排序'));
+        $form->number('sort', __('排序'))->default(0);
         $form->switch('status', __('状态'))->default(1);
         $form->url('url', __('跳转地址'));
 

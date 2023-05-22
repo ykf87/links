@@ -83,6 +83,15 @@ class IndexController extends Controller{
 		if(!$row){
 			return $this->error('产品不存在!');
 		}
+		if($row->country_id > 0){
+			$country 	= Country::find($row->country_id);
+			if($country && $country->huobi){
+				$row->symbol 	= $country->huobi;
+			}
+		}
+		if(!isset($row->symbol)){
+			$row->symbol 		= '$';
+		}
 		return $this->success($row);
 	}
 }
