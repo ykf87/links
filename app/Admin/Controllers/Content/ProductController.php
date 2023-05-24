@@ -35,6 +35,7 @@ class ProductController extends AdminController
         $grid->column('id', __('编号'));
         $grid->column('image', __('产品图'))->image('', 30,30);
         $grid->column('title', __('标题'))->filter();
+        $grid->column('min_price', __('最低价格'))->sortable();
         $grid->column('price', __('价格'))->sortable();
         $grid->column('yongjin', __('佣金率'))->display(function($val){
             return $val ? $val . '%' : '';
@@ -66,6 +67,7 @@ class ProductController extends AdminController
         $show->field('id', __('编号'));
         $show->field('image', __('产品图'));
         $show->field('title', __('标题'));
+        $show->field('min_price', __('最低价'));
         $show->field('price', __('价格'));
         $show->field('yongjin', __('佣金率'));
         $show->field('addtime', __('添加时间'));
@@ -93,7 +95,8 @@ class ProductController extends AdminController
         $form->select('cate_id', __('类型'))->options($cate);
         $form->text('title', __('标题'));
         $form->multipleImage('image', __('产品图'))->removable();
-        $form->currency('price', __('价格'));
+        $form->currency('min_price', __('最低价格'))->help('如果商品就一个价格,最低价格留空即可');
+        $form->currency('price', __('价格'))->help('最高价格,一个价只需要填写这个');
         $form->rate('yongjin', __('佣金率'));
         $form->url('url', __('链接'));
         $form->switch('status', __('状态'))->default(1);
